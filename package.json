@@ -1,0 +1,21 @@
+{
+  "name": "new-years-resolution-app",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "Matthew C <matthew.j.carpenter1@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "server": "nodemon server.js",
+    "client": "cd client && yarn start"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.1"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.9"
+  }
+}

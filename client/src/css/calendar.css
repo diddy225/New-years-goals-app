@@ -1,0 +1,26 @@
+.calendar-main {
+    display: grid;
+    grid-template-columns: repeat(7, auto);
+    grid-template-rows: repeat(6, auto);
+    border: 2.5px solid #555;
+}
+
+.calendar-main > div {
+  border: 1px solid #555;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.month-name {
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0 20px;
+}
+
+.weekdays {
+  text-align: center
+}
