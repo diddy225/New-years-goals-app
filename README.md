@@ -17,7 +17,7 @@ Moment
 
 ## Authors
 
-* Matthew Carpenter  - [Matthew Carpenter](https://github.com/diddy225)
+* [Matthew Carpenter](https://github.com/diddy225)
 
 ## License
 
