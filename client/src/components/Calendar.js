@@ -3,7 +3,6 @@ import { Icon } from 'semantic-ui-react'
 import moment from 'moment'
 import DateCard from './DateCard'
 import '../css/calendar.css'
-//import Header from './Header'
 
 class Calendar extends Component {
   constructor(props) {
@@ -13,11 +12,11 @@ class Calendar extends Component {
       currentMonth: moment().month(),
       currentYear: moment().year(),
       daysOfWeek: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-      activeList: null
+      activeList: null //array of objects for each day
     }
   }
 
-  componentDidMount() {
+  componentWillMount() { //this data needs to be stored in the database.
     const lastDay = this.state.today.daysInMonth()
     const statusList = []
     for (let i = 1; i <= lastDay; i++) {
@@ -33,11 +32,11 @@ class Calendar extends Component {
     }
     this.setState({activeList: statusList})
   };
-  //need to figure out how to map obj True false to each ele.**********YOU STOPPED HERE!!!!!**********.
+
   handleSelect = (index, goal) => {
     const { activeList } = this.state
     this.setState(state => {
-        state.activeList.map((item, j) => {
+        state.activeList.map(item => {
         return activeList[index][goal] = !activeList[index][goal]
       });
       return {
@@ -46,7 +45,6 @@ class Calendar extends Component {
     })
   }
   
-
   handleNext = () => {
     const { currentMonth, currentYear } = this.state
     this.setState({
@@ -69,7 +67,7 @@ class Calendar extends Component {
     const firstDay = today.year(year).month(month).startOf('month').day(); // Gets the first day (Mon...Fri..Sun)
 
     for(let i = 0; i < 6; i++){ 
-      for(let j = 0; j < 7; j++) { //picks the first day of the week.
+      for(let j = 0; j < 7; j++) { //picks the first day of the week, fills with empty divs.
         if( i === 0 && j < firstDay) {
           emptyDays.push(j);
         }       
@@ -90,7 +88,7 @@ class Calendar extends Component {
 
   render() {
     const {currentMonth, currentYear, daysOfWeek, today, activeList} = this.state;
-    
+
     const dayNames = daysOfWeek.map((name, i) => {
       return <div key={i} className="weekdays">{name}</div>
     })
@@ -113,9 +111,20 @@ class Calendar extends Component {
     return (
       <div className="ui container">
         <header className="header">
-          <Icon name="angle left" size="big" onClick={this.handlePrev} />
-          <p className="month-name">{today.format('MMMM')} {today.format('YYYY')}</p>
-          <Icon name="angle right" size="big" onClick={this.handleNext} />
+          <Icon 
+            name="angle left" 
+            size="big" 
+            onClick={this.handlePrev} 
+          />
+          <p 
+            className="month-name">
+            {today.format('MMMM')} {today.format('YYYY')}
+          </p>
+          <Icon 
+            name="angle right" 
+            size="big" 
+            onClick={this.handleNext} 
+            />
         </header>
         <div className="calendar-main">
           {dayNames}

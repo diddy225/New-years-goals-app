@@ -2,12 +2,11 @@ import React from 'react'
 import { Icon } from 'semantic-ui-react'
 import '../css/dateCard.css'
 
-
 const DateCard = (props) => {
-  let selectReading = !props.reading && props.index + 1  === props.day ? null : props.reading
-  let selectCoding = !props.reading && props.index + 1  === props.day ? null : props.coding
-  let selectFitness = !props.reading && props.index + 1  === props.day ? null : props.fitness
-  let selectFamily = !props.reading && props.index + 1  === props.day ? null : props.family
+  let selectReading = props.index  === props.day ? null : props.reading
+  let selectCoding =  props.index  === props.day ? null : props.coding
+  let selectFitness = props.index  === props.day ? null : props.fitness
+  let selectFamily =  props.index  === props.day ? null : props.family
   return (
     <div>
       <div className="numberBox">{props.day}</div>
