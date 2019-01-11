@@ -9,8 +9,9 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(express.static('public'));
 
-mongoose.connect('mongodb://localhost:27017/NewYearsGoals', { useNewUrlParser: true });
-
+mongoose.connect('mongodb://test:test123@ds153824.mlab.com:53824/heroku_41nm74vl', { useNewUrlParser: true });
+//mongodb://<dbuser>:<dbpassword>@ds153824.mlab.com:53824/heroku_41nm74vl
+//mongodb://localhost:27017/NewYearsGoals
 require('./routes/api-routes')(app);
 require('./routes/html-routes')(app);
 
