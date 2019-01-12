@@ -1,6 +1,6 @@
 {
   "name": "new-years-resolution-app",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "server.js",
   "author": "Matthew C <matthew.j.carpenter1@gmail.com>",
   "license": "MIT",
