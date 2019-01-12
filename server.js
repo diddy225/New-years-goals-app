@@ -7,7 +7,10 @@ const app = express();
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-app.use(express.static('public'));
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'));
+}
 
 mongoose.connect('mongodb://test:test123@ds153824.mlab.com:53824/heroku_41nm74vl', { useNewUrlParser: true });
 //mongodb://<dbuser>:<dbpassword>@ds153824.mlab.com:53824/heroku_41nm74vl
